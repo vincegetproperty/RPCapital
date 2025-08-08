@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RP Capital - Strategic Investments</title>
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;600&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  :root {
+    --primary: #d71016;
+    --dark-bg: #0e0e0e;
+    --light-text: #fff;
+    --secondary-text: #ccc;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body, html {
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    scroll-behavior: smooth;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Sticky Header */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  header.scrolled {
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  header h1 {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.6rem;
+    letter-spacing: 1.2px;
+  }
+
+  nav a {
+    margin-left: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--light-text);
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--primary);
+  }
+
+  .hero {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+      rgba(14, 14, 14, 0.8),
+      rgba(14, 14, 14, 0.95)
+    ),
+    url("rp1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+  margin: 0;
+}
+
+
+  /* Sections */
+  section {
+    max-width: 1100px;
+    margin: 100px auto 60px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  section h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: var(--primary);
+  }
+
+  section p {
+    max-width: 720px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+  }
+
+  /* Cards Grid */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .card {
+    background-color: #1a1a1a;
+    border-radius: 18px;
+    padding: 25px 20px;
+    box-shadow: 0 0 10px rgba(215, 17, 22, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 20px rgba(215, 17, 22, 0.5);
+  }
+
+  .card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+  }
+
+  .card h3 {
+    margin-bottom: 15px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+  }
+
+  .card p {
+    color: var(--secondary-text);
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+
+  .card button {
+    background-color: var(--primary);
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .card button:hover {
+    background-color: #a50f12;
+  }
+
+  /* Contact */
+  #contact a.btn {
+    margin: 0 10px;
+  }
+
+  /* Detailed Footer */
+  footer {
+    background-color: #111111;
+    color: var(--secondary-text);
+    padding: 60px 40px 40px;
+    font-size: 0.95rem;
+  }
+
+  .footer-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #222;
+  }
+
+  .footer-grid h3 {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    margin-bottom: 22px;
+    color: var(--primary);
+  }
+
+  .footer-grid p,
+  .footer-grid a,
+  .footer-grid address {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--secondary-text);
+  }
+
+  .footer-grid a:hover {
+    color: var(--primary);
+  }
+
+  .footer-grid address {
+    font-style: normal;
+  }
+
+  .footer-section-list a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .footer-socials a {
+    margin-right: 18px;
+    font-size: 1.6rem;
+    color: var(--secondary-text);
+    transition: color 0.3s ease;
+  }
+
+  .footer-socials a:hover {
+    color: var(--primary);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--secondary-text);
+    margin-top: 30px;
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .modal.active {
+    display: flex;
+  }
+
+  .modal-content {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    padding: 30px 25px;
+    max-width: 480px;
+    width: 100%;
+    color: var(--secondary-text);
+    position: relative;
+    text-align: left;
+  }
+
+  .modal-content h3 {
+    font-family: "Orbitron", sans-serif;
+    color: var(--primary);
+    margin-bottom: 18px;
+  }
+
+  .modal-content p {
+    line-height: 1.5;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.6rem;
+    color: var(--secondary-text);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .modal-close:hover {
+    color: var(--primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header {
+      padding: 15px 20px;
+    }
+    nav a {
+      margin-left: 15px;
+      font-size: 0.9rem;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+    section {
+      margin: 80px 15px 50px;
+      padding: 0 10px;
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <h1>RP Capital</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+ <section class="hero" id="hero">
+  <h2>Strategic Investments. Measurable Success.</h2>
+  <p>We help you achieve sustainable financial growth through innovation and trust.</p>
+  <div>
+    <button class="btn btn-primary" data-modal="modalGetStarted">Get Started</button>
+    <button class="btn btn-outline" data-modal="modalInvestorLogin">Investor Login</button>
+  </div>
+</section>
+
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      RP Capital is a premier investment firm specializing in diversified portfolios,
+      private equity, and wealth management strategies. We prioritize transparency,
+      trust, and consistent returns.
+    </p>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Trust</h3>
+        <p>Built on years of financial expertise and regulatory compliance.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Growth</h3>
+        <p>Focused on sustainable and scalable investment strategies.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Innovation</h3>
+        <p>Leveraging market insights and emerging asset classes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>Comprehensive solutions tailored for institutional and private investors.</p>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-building"></i>
+        <h3>Private Equity</h3>
+        <p>Investing in high-potential private companies for long-term value creation.</p>
+        <button class="btn" data-modal="modalPrivateEquity">Learn More</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-coins"></i>
+        <h3>Wealth Management</h3>
+        <p>Personalized strategies to protect and grow client wealth.</p>
+        <button class="btn" data-modal="modalWealthManagement">Learn More</button>
+      </div>
+      <div class="card">
+        <i class="fas fa-chart-pie"></i>
+        <h3>Portfolio Diversification</h3>
+        <p>Risk-managed portfolios spanning multiple asset classes.</p>
+        <button class="btn" data-modal="modalPortfolioDiversification">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to our investment advisors today.</p>
+    <a href="mailto:info@rpcapital.com" class="btn btn-primary">Email Us</a>
+    <a href="tel:+27123456789" class="btn btn-outline">Call Us</a>
+  </section>
+
+  <!-- Detailed Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>RP Capital</h3>
+        <p>
+          Delivering measurable success through strategic investments and innovation.
+        </p>
+        <address>
+          <strong>Head Office:</strong><br />
+          123 Investment Lane, Suite 400<br />
+          Johannesburg, South Africa<br />
+          Phone: +27 11 123 4567<br />
+          Email: info@rpcapital.com
+        </address>
+      </div>
+      <div class="footer-section-list">
+        <h3>Investor Resources</h3>
+        <a href="#">Investor Login</a>
+        <a href="#">Annual Reports</a>
+        <a href="#">Market Insights</a>
+        <a href="#">FAQs</a>
+      </div>
+      <div class="footer-section-list">
+        <h3>Compliance</h3>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Legal Disclaimers</a>
+        <a href="#">AML & KYC Policy</a>
+      </div>
+      <div>
+        <h3>Connect with Us</h3>
+        <div class="footer-socials">
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.9rem;">
+          Office Hours:<br />
+          Mon - Fri: 08:30 - 17:30<br />
+          Sat - Sun: Closed
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 RP Capital. All Rights Reserved.</div>
+  </footer>
+
+  <!-- Modals -->
+  <div class="modal" id="modalGetStarted">
+    <div class="modal-content">
+      <span class="modal-close" data-close>&times;</span>
+      <h3>Get Started with RP Capital</h3>
+      <p>
+        Begin your investment journey with RP Capital's personalized strategies and expert insights.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal" id="modalInvestorLogin">
+    <div class="modal-content">
+      <span class="modal-close" data-close>&times;</span>
+      <h3>Investor Login</h3>
+      <p>
+        Secure portal access for our valued investors. Please contact support for login credentials.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal" id="modalPrivateEquity">
+    <div class="modal-content">
+      <span class="modal-close" data-close>&times;</span>
+      <h3>Private Equity</h3>
+      <p>
+        We invest in promising private companies focused on scalable growth and long-term value.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal" id="modalWealthManagement">
+    <div class="modal-content">
+      <span class="modal-close" data-close>&times;</span>
+      <h3>Wealth Management</h3>
+      <p>
+        Tailored wealth management strategies to protect and grow your assets effectively.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal" id="modalPortfolioDiversification">
+    <div class="modal-content">
+      <span class="modal-close" data-close>&times;</span>
+      <h3>Portfolio Diversification</h3>
+      <p>
+        Strategically diversify your investments across asset classes to manage risk and maximize returns.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Sticky Header Background on Scroll
+    const header = document.getElementById("header");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 60) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+    // Modal functionality
+    const modalButtons = document.querySelectorAll("[data-modal]");
+    const modals = document.querySelectorAll(".modal");
+    const modalCloses = document.querySelectorAll("[data-close]");
+
+    modalButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const modalId = btn.getAttribute("data-modal");
+        document.getElementById(modalId).classList.add("active");
+        document.body.style.overflow = "hidden"; // prevent scroll while modal open
+      });
+    });
+
+    modalCloses.forEach((closeBtn) => {
+      closeBtn.addEventListener("click", () => {
+        closeBtn.closest(".modal").classList.remove("active");
+        document.body.style.overflow = "";
+      });
+    });
+
+    window.addEventListener("click", (e) => {
+      modals.forEach((modal) => {
+        if (e.target === modal) {
+          modal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
